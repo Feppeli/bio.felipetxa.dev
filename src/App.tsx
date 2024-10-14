@@ -27,11 +27,11 @@ function App() {
               </div>
 
               <div className='col-start-2 p-5 md:p-10  rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img1})` }}>
-                <h1 className=' text-center text-2xl md:text-4xl font-bold text-white '>Realizar Orçamento</h1>
+                <h1 className=' text-center text-3xl md:text-4xl font-bold text-white '>Realizar Orçamento</h1>
               </div>
 
               <div className='col-start-2 p-5 md:p-10  rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img3})` }}>
-                <h1 className='text-center text-2xl md:text-4xl font-bold text-white'>Preciso de um Site!</h1>
+                <h1 className='text-center text-3xl md:text-4xl font-bold text-white'>Preciso de um Site!</h1>
               </div>
 
               <div className='col-start-1 col-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img4})` }}>
