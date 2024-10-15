@@ -10,10 +10,10 @@ function App() {
 
   return (
     <>
-      <main className='bg-black h-screen w-full'>
+      <main className='bg-black h-full w-full'>
         <div className="h-full md:h-screen bg-cover bg-center bg-black pb-4" >
-          <div className='w-full h-full  sm:p-4 backdrop-blur-sm flex flex-col items-center justify-center	gap-8'>
-            <h1 className='pt-0 pb-5 text-4xl text-white font-bold '>DF<span className='font-normal text-3xl'>Systems</span></h1>
+          <div className='w-full md:h-screen  sm:p-4 backdrop-blur-sm flex flex-col items-center justify-center	gap-8'>
+            <h1 className='pt-10 pb-5 text-4xl text-white font-bold '>DF<span className='font-normal text-3xl'>Systems</span></h1>
 
             {/* grid */}
             <div className='flex flex-col md:grid grid-cols-2 gap-4 w-3/4 h-3/4'>
