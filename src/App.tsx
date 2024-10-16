@@ -6,19 +6,31 @@ import img1 from './assets/curso de programacao.png'
 import img2 from './assets/landingpage de advogado.png'
 import img3 from './assets/orçamento.png'
 import img4 from './assets/sistema.png'
+import ModalCourse from './components/ModalCourse'
 
 function App() {
 
   const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [isOpenCourseModal, setIsOpenCourseModal] = useState<boolean>(false)
 
   const openModal = () => {
-    console.log('abrindo')
     setIsOpen(true)
+
   }
 
   const closeModal = () => {
     setIsOpen(false)
   }
+
+  const openCourseModal = () => {
+    setIsOpenCourseModal(true)
+
+  }
+
+  const closeCourseModal = () => {
+    setIsOpenCourseModal(false)
+  }
+
   return (
     <>
       <main className='bg-black h-full w-full'>
@@ -45,7 +57,7 @@ function App() {
                 <h1 className='text-center text-3xl md:text-4xl font-bold text-white'>Preciso de um Site!</h1>
               </div>
 
-              <div className='col-start-1 col-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img4})` }} onClick={openModal}>
+              <div className='col-start-1 col-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img4})` }} onClick={openCourseModal}>
                 <h1 className='text-left text-2xl md:text-4xl font-normal text-white'>Curso de programação<br /> web Full Stack <span className=' text-2xl md:text-4xl font-black text-white'>(em breve)</span></h1>
               </div>
 
@@ -55,21 +67,25 @@ function App() {
         </div>
       </main>
       <Modal isOpen={isOpen} onClose={closeModal}>
-        <form>
-          <input type="text" placeholder='Nome completo' required/>
-          <select name="ddd" id="ddd" required>
+        <form className='flex flex-col items-left w-full p-2 m-4 gap-3'>
+          <input type="text" placeholder='Nome completo' required className='border-2 rounded p-2 bg-slate-300 text-black'/>
+          <select name="ddd" id="ddd" required className='border-2 rounded p-2 bg-slate-300 text-black'>
             <option value="11" >11</option>
             <option value="11">81</option>
             <option value="11">27</option>
           </select>
-          <input type="text" placeholder='numero para contato com DDD' required/>
-          <textarea name="description" id="description" placeholder='Nos conte mais sobre o que você precisa'></textarea>
+          <input type="number" placeholder='numero para contato com DDD' required className='border-2 rounded p-2 bg-slate-300 text-black'/>
+          <textarea name="description" id="description" placeholder='Nos conte mais sobre o que você precisa' className='border-2 rounded p-2 bg-slate-300 text-black'></textarea>
+          <input type="text" placeholder='Qual é o seu orçamento para o projeto/site?' className='border-2 rounded p-2 bg-slate-300 text-black'/>
         </form>
-        <div>
-          <button onClick={closeModal}>Enviar</button>
-          <button onClick={closeModal}>Fechar</button>
+        <div className='flex flex row gap-1'>
+          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 bg-black rounded text-white bg-green-600'>Enviar</button>
+          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 bg-black rounded text-white bg-red-600'>Fechar</button>
         </div>
       </Modal>
+      <ModalCourse isOpenCourseModal={isOpenCourseModal} onCloseCourseModa={closeCourseModal}>
+      <button onClick={closeCourseModal} className='pl-14 pr-14 pt-3 pb-3 mt-4 bg-black rounded text-white bg-red-600'>Fechar</button>
+      </ModalCourse>
     </>
   )
 
