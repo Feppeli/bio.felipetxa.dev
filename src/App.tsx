@@ -67,7 +67,7 @@ function App() {
         </div>
       </main>
       <Modal isOpen={isOpen} onClose={closeModal}>
-        <form className='flex flex-col items-left w-full p-2 m-4 gap-3'>
+        <form className='flex flex-col items-left w-full p-2 m-4 gap-3 '>
           <input type="text" placeholder='Nome completo' required className='border-2 rounded p-2 bg-slate-300 text-black'/>
           <select name="ddd" id="ddd" required className='border-2 rounded p-2 bg-slate-300 text-black'>
             <option value="11" >11</option>
@@ -79,12 +79,12 @@ function App() {
           <input type="text" placeholder='Qual é o seu orçamento para o projeto/site?' className='border-2 rounded p-2 bg-slate-300 text-black'/>
         </form>
         <div className='flex flex row gap-1'>
-          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 bg-black rounded text-white bg-green-600'>Enviar</button>
-          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 bg-black rounded text-white bg-red-600'>Fechar</button>
+          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-green-600'>Enviar</button>
+          <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-red-600'>Fechar</button>
         </div>
       </Modal>
       <ModalCourse isOpenCourseModal={isOpenCourseModal} onCloseCourseModa={closeCourseModal}>
-      <button onClick={closeCourseModal} className='pl-14 pr-14 pt-3 pb-3 mt-4 bg-black rounded text-white bg-red-600'>Fechar</button>
+      <button onClick={closeCourseModal} className='pl-14 pr-14 pt-3 pb-3 mt-4 pb-4 mb-4 rounded text-white bg-red-600 font-bold'>Fechar</button>
       </ModalCourse>
     </>
   )
