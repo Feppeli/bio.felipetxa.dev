@@ -33,33 +33,35 @@ function App() {
     setIsOpenCourseModal(false)
   }
 
-  const redirectToWhatsapp  = () => {
+  const redirectToWhatsapp = () => {
     window.location.href = "https://wa.me/5581991274483?text=Olá.+preciso+de+uma+landing+page+para+o+meu+escritório!"
   }
 
   // scroll reveal configuration
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-    useEffect(() => {
-        const sr = ScrollReveal({
-            distance: '50px',
-            duration: 1000,
-            easing: 'ease-in-out',
-            opacity: 0,
-            scale: 0.85,
-        });
+  useEffect(() => {
+    setTimeout(() => {
+      const sr = ScrollReveal({
+        distance: '50px',
+        duration: 1000,
+        easing: 'ease-in-out',
+        opacity: 0,
+        scale: 0.85,
+      });
 
-        elementsRef.current.forEach((el, index) => {
-            if (el) {
-                sr.reveal(el, {
-                    interval: 200,
-                    delay: index * 100, // Delay incremental para cada elemento
-                });
-            }
-        });
-    }, []);
+      elementsRef.current.forEach((el, index) => {
+        if (el) {
+          sr.reveal(el, {
+            interval: 1000,
+            delay: index * 200, // Delay incremental para cada elemento
+          });
+        }
+      });
+    },500)
+  }, []);
 
-  
+
 
   return (
     <>
@@ -83,11 +85,11 @@ function App() {
                 <h1 className=' text-center text-3xl md:text-4xl font-bold text-white '>Realizar Orçamento</h1>
               </div>
 
-              <div ref={el => (elementsRef.current[2] = el)}className='col-start-2 p-5 md:p-10  rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img3})` }} onClick={openModal}>
+              <div ref={el => (elementsRef.current[2] = el)} className='col-start-2 p-5 md:p-10  rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img3})` }} onClick={openModal}>
                 <h1 className='text-center text-3xl md:text-4xl font-bold text-white'>Preciso de um Site!</h1>
               </div>
 
-              <div ref={el => (elementsRef.current[3] = el)}className='col-start-1 col-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img4})` }} onClick={openCourseModal}>
+              <div ref={el => (elementsRef.current[3] = el)} className='col-start-1 col-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center flex items-left justify-center flex-col w-full h-full hover:grayscale ease-in-out cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img4})` }} onClick={openCourseModal}>
                 <h1 className='text-left text-2xl md:text-4xl font-normal text-white'>Curso de programação<br /> web Full Stack <span className=' text-2xl md:text-4xl font-black text-white'>(em breve)</span></h1>
               </div>
 
@@ -96,8 +98,8 @@ function App() {
 
         </div>
       </main>
-      <Modal isOpen={isOpen} onClose={closeModal}/>
-      <ModalCourse isOpenCourseModal={isOpenCourseModal} onCloseCourseModal={closeCourseModal}/>
+      <Modal isOpen={isOpen} onClose={closeModal} />
+      <ModalCourse isOpenCourseModal={isOpenCourseModal} onCloseCourseModal={closeCourseModal} />
     </>
   )
 
