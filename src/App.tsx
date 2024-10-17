@@ -36,7 +36,7 @@ function App() {
       <main className='bg-black h-screen w-full'>
         <div className="md:h-screen bg-cover bg-center bg-black pb-4" >
           <div className='w-full md:h-screen  sm:p-4 backdrop-blur-sm flex flex-col items-center justify-center	gap-8'>
-            <h1 className='pt-10 pb-5 text-4xl text-white font-bold '>DF<span className='font-normal text-3xl'>Systems</span></h1>
+            <h1 className='pt-10 pb-5 text-4xl text-white font-bold '>RAVEL<span className='font-normal text-3xl'>Systems</span></h1>
 
             {/* grid */}
             <div className='flex flex-col md:grid grid-cols-2 gap-4 w-3/4 h-3/4'>
@@ -69,6 +69,7 @@ function App() {
       <Modal isOpen={isOpen} onClose={closeModal}>
         <form className='flex flex-col items-left w-full p-2 m-4 gap-3 '>
           <input type="text" placeholder='Nome completo' required className='border-2 rounded p-2 bg-slate-300 text-black'/>
+          <label htmlFor="DDD">Selecione o DDD do seu número:</label>
           <select name="ddd" id="ddd" required className='border-2 rounded p-2 bg-slate-300 text-black'>
             <option value="11" >11</option>
             <option value="11">81</option>
@@ -76,7 +77,13 @@ function App() {
           </select>
           <input type="number" placeholder='numero para contato com DDD' required className='border-2 rounded p-2 bg-slate-300 text-black'/>
           <textarea name="description" id="description" placeholder='Nos conte mais sobre o que você precisa' className='border-2 rounded p-2 bg-slate-300 text-black'></textarea>
-          <input type="text" placeholder='Qual é o seu orçamento para o projeto/site?' className='border-2 rounded p-2 bg-slate-300 text-black'/>
+          <label htmlFor="orcamento"> Qual é o seu orçameno?</label>
+          <select name="orcamento" id="orcamento" required className='border-2 rounded p-2 bg-slate-300 text-black'>
+            <option value="basic" >Básico: R$699,90</option>
+            <option value="standard">Intermediario: R$1450,97</option>
+            <option value="pro">Pro: R$2980,50</option>
+            <option value="premium">Premium: a partir de R$5000,00</option>
+          </select>
         </form>
         <div className='flex flex row gap-1'>
           <button onClick={closeModal} className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-green-600'>Enviar</button>
