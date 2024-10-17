@@ -31,6 +31,10 @@ function App() {
     setIsOpenCourseModal(false)
   }
 
+  const redirectToWhatsapp  = () => {
+    window.location.href = "https://wa.me/5581991274483?text=Olá.+preciso+de+uma+landing+page+para+o+meu+escritório!"
+  }
+
   return (
     <>
       <main className='bg-black h-screen w-full'>
@@ -42,7 +46,7 @@ function App() {
             <div className='flex flex-col md:grid grid-cols-2 gap-4 w-3/4 h-3/4'>
 
               {/* Elementos do grid */}
-              <div className='row-start-1 row-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center hover:grayscale cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img2})` }} onClick={openModal}>
+              <div className='row-start-1 row-end-3 p-5 md:p-10 rounded-xl bg-cover bg-center hover:grayscale cursor-pointer delay-500 md:hover:p-6 md:hover:m-6 easy-in-out duration-500' style={{ backgroundImage: `url(${img2})` }} onClick={redirectToWhatsapp}>
                 <div className='flex items-left justify-center flex-col w-full h-full'>
                   <h1 className='text-4xl font-normal text-white'>Landingpages<br /> <span className='text-2xl font-thin'>para advogados e escritórios de advocacia</span></h1>
                   <h3 className=' text-2xl md:text-4xl text-white pt-4 font-bold'>A partir de:<span className='text-4xl font-semibold text-green-600'>R$699,90</span></h3>
