@@ -35,11 +35,15 @@ function App() {
     window.location.href = "https://wa.me/5581991274483?text=Olá.+preciso+de+uma+landing+page+para+o+meu+escritório!"
   }
 
+  // const getOrcamento = () => {
+  //   window.location.href = "  "
+  // }
+
   return (
     <>
       <main className='bg-black h-screen w-full'>
         <div className="md:h-screen bg-cover bg-center bg-zinc-950 pb-4" >
-          <div className='w-full md:h-screen  sm:p-4 backdrop-blur-sm flex flex-col items-center justify-center	gap-8'>
+          <div className='w-full md:h-screen  sm:p-4 backdrop-blur-sm flex flex-col items-center justify-center	gap-8 pb-8'>
             <h1 className='pt-10 pb-5 text-4xl text-white font-bold '>RAVEL<span className='font-normal text-3xl'>Systems</span></h1>
 
             {/* grid */}
