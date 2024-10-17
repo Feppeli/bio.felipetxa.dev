@@ -98,6 +98,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         <option value="igravel">Instagram da Ravel systems</option>
                         <option value="facebook">Facebook</option>
                         <option value="igads">Anúncio do instagram</option>
+                        <option value="google">Google</option>
                     </select>
                 </form>
                 <div className='flex flex row gap-1'>
