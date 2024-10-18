@@ -1,19 +1,63 @@
+import { useState } from "react";
+
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
+// interface FormData {
+//     phone: string,
+//     name: string,
+//     ddd: string,
+//     ads: string,
+//     cash: string,
+//     description: string
+// }
+
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
+    const [formData, setFormData] = useState({
+        phone: "",
+        name: "",
+        ddd: "",
+        ads: "",
+        cash: "",
+        description: "",
+    })
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log('Dados do formulário:', formData);
+        onClose(); // Fecha o modal após o submit
+    };
+
     return (
-        <div className="h-screen w-screen backdrop-blur-sm	 fixed top-0 left-0 flex items-center justify-center p-4">
+        <form onSubmit={handleSubmit} className="h-screen w-screen backdrop-blur-sm	 fixed top-0 left-0 flex items-center justify-center p-4">
             <div className="w-full p-1 bg-white flex flex-col items-center justify-center p-2 rounded md:w-1/2 md:pt-8 md:pb-8 md:pl-6 md:pr-6">
                 <h1 className='text-xl font-bold text-center mt-4'>Preencha as seguintes informações</h1>
                 <form className='flex flex-col items-left w-full p-2 m-4 gap-3 '>
-                    <input type="text" placeholder='Nome completo' required className='border-2 rounded p-2 bg-slate-300 text-black' />
+
+                    <input
+                        type="text"
+                        placeholder='nome completo'
+                        name="name"
+                        id="name"
+                        onChange={handleChange}
+                        required
+                        className='border-2 rounded p-2 bg-slate-300 text-black' >
+                    </input>
+
                     <label htmlFor="DDD">Selecione o DDD do seu número:</label>
-                    <select name="ddd" id="ddd" required className='border-2 rounded p-2 bg-slate-300 text-black'>
+                    <select
+                        name="ddd"
+                        id="ddd"
+                        required className='border-2 rounded p-2 bg-slate-300 text-black'>
                         <option value="11">11</option>
                         <option value="12">12</option>
                         <option value="13">13</option>
@@ -82,17 +126,42 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         <option value="98">98</option>
                         <option value="99">99</option>
                     </select>
-                    <input type="number" placeholder='numero para contato com DDD' required className='border-2 rounded p-2 bg-slate-300 text-black' />
-                    <textarea name="description" id="description" placeholder='Nos conte mais sobre o que você precisa' className='border-2 rounded p-2 bg-slate-300 text-black '></textarea>
+                    <input
+                        type="text"
+                        placeholder='Digite seu número para contato'
+                        name="phone"
+                        id="phone"
+                        onChange={handleChange}
+                        required
+                        className='border-2 rounded p-2 bg-slate-300 text-black' >
+                    </input>
+
+                    <input
+                        type="text"
+                        placeholder='Descreva o seu projeto'
+                        name="description"
+                        id="description"
+                        onChange={handleChange}
+                        required
+                        className='border-2 rounded p-2 bg-slate-300 text-black' >
+                    </input>
+
                     <label htmlFor="orcamento"> Qual é o seu orçameno?</label>
-                    <select name="orcamento" id="orcamento" required className='border-2 rounded p-2 bg-slate-300 text-black'>
+                    <select
+                        name="cash"
+                        id="cash"
+                        onChange={handleChange}
+                        required
+                        className='border-2 rounded p-2 bg-slate-300 text-black'
+                    >
                         <option value="basic" >Básico: R$699,90</option>
                         <option value="standard">Intermediario: R$1450,97</option>
                         <option value="pro">Pro: R$2980,50</option>
                         <option value="premium">Premium: a partir de R$5000,00</option>
                     </select>
                     <label htmlFor="funil">Como você nos encontrou?</label>
-                    <select name="funil" id="funil" required className='border-2 rounded p-2 bg-slate-300 text-black'>
+                    <select name="funil" id="funil"
+                        onChange={handleChange} required className='border-2 rounded p-2 bg-slate-300 text-black'>
                         <option value="linkedin">Linkedin</option>
                         <option value="igpessoal">Instagram do Felipe</option>
                         <option value="igravel">Instagram da Ravel systems</option>
@@ -102,11 +171,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                     </select>
                 </form>
                 <div className='flex flex row gap-1'>
-                    <button onClick={onClose} className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-green-600'>Enviar</button>
+                    <button type="submit" className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-green-600'>Enviar</button>
                     <button onClick={onClose} className='pl-14 pr-14 pt-3 pb-3 mb-4 bg-black rounded text-white bg-red-600'>Fechar</button>
                 </div>
             </div>
-        </div>
+        </form>
     )
 }
 
