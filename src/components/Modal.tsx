@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         let validationName = name.trim().replace(/\s+/g, '+');
         let validationDescription = description.trim().replace(/\s+/g, '+');
 
-        const url = `https://wa.me/5581991274483?text=Olá+preciso+de+um+site+ou+sistema+:)%0%0AANome:+${validationName} %0AContato:+(${ddd})+${phone} %0AOrcamento:+${cash} %0Adescrição+do+projeto:+${validationDescription} %0ACanal:+${ads}`
+        const url = `https://wa.me/5581991274483?text=Olá+preciso+de+um+site+ou+sistema+:) %0 %0AANome:+${validationName} %0AContato:+(${ddd})+${phone} %0AOrcamento:+${cash} %0Adescrição+do+projeto:+${validationDescription} %0ACanal:+${ads}`
         window.open(url, '_blank')
 
         onClose(); // Fecha o modal após o submit
@@ -111,10 +111,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                     >
                         <option value="">Selecione uma opção</option>
                         <option value="linkedin">LinkedIn</option>
-                        <option value="igpessoal">Instagram do Felipe</option>
-                        <option value="igravel">Instagram da Ravel Systems</option>
+                        <option value="Instagram pessoal do Felipe">Instagram do Felipe</option>
+                        <option value="Istagram da Ravel Systems">Instagram da Ravel Systems</option>
                         <option value="facebook">Facebook</option>
-                        <option value="igads">Anúncio do Instagram</option>
+                        <option value="Anúncio do Instagram">Anúncio do Instagram</option>
                         <option value="google">Google</option>
                     </select>
                 </div>
