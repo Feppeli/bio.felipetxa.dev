@@ -65,7 +65,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                     />
                     
                     <input
-                        type="number"
+                        type="text"
                         placeholder='Digite seu número para contato'
                         name="phone"
                         id="phone"
