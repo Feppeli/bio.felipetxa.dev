@@ -20,12 +20,21 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
-        console.log('Valor capturado:', value); // Debug
+        // console.log('Valor capturado:', value); // Debug
     };
 
     const handleSubmit = (e: React.FormEvent) => {
+        const {phone, name, ddd, ads, cash, description} = formData
         e.preventDefault();
-        console.log('Dados do formulário:', formData);
+
+        // console.log('Dados do formulário:', formData);
+        
+        let validationName = name.trim().replace(/\s+/g, '+');
+        let validationDescription = description.trim().replace(/\s+/g, '+');
+
+        const url = `https://wa.me/5581991274483?text=Olá+preciso+de+um+site+ou+sistema+:)%0%0AANome:+${validationName} %0AContato:+(${ddd})+${phone} %0AOrcamento:+${cash} %0Adescrição+do+projeto:+${validationDescription} %0ACanal:+${ads}`
+        window.open(url, '_blank')
+
         onClose(); // Fecha o modal após o submit
     };
 
@@ -51,16 +60,18 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                         id="ddd"
                         onChange={handleChange}
                         required
+                        maxLength={3}
                         className='border-2 rounded p-2 bg-slate-300 text-black'
                     />
                     
                     <input
-                        type="text"
+                        type="number"
                         placeholder='Digite seu número para contato'
                         name="phone"
                         id="phone"
                         onChange={handleChange}
                         required
+                        maxLength={9}
                         className='border-2 rounded p-2 bg-slate-300 text-black'
                     />
 
