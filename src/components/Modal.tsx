@@ -3,8 +3,9 @@ import { useState } from "react";
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
-}
+} 
 
+// remove types number
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
